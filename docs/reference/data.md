@@ -8,6 +8,8 @@
 
 ::: radiacode.types.RareData
 
+::: radiacode.types.DoseCounter
+
 ::: radiacode.types.Event
 
 ::: radiacode.types.Spectrum

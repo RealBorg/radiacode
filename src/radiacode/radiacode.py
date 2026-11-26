@@ -26,6 +26,7 @@ from radiacode.types import (
     VSFR,
     AlarmLimits,
     DisplayDirection,
+    DoseCounter,
     DoseRateDB,
     Event,
     RareData,
@@ -345,7 +346,7 @@ class RadiaCode:
         """Make the device vibrate and play a locator sound"""
         self.write_request(VSFR.PLAY_SIGNAL, struct.pack('<I', 1))
 
-    def data_buf(self) -> list[DoseRateDB | RareData | RealTimeData | RawData | Event]:
+    def data_buf(self) -> list[DoseRateDB | RareData | RealTimeData | RawData | Event | DoseCounter]:
         """Get buffered measurement data from the device."""
         r = self.read_request(VS.DATA_BUF)
         return decode_VS_DATA_BUF(r, self._base_time)

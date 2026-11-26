@@ -8,6 +8,7 @@ __all__ = [
     'AlarmLimits',
     'CTRL',
     'DisplayDirection',
+    'DoseCounter',
     'DoseRateDB',
     'Event',
     'EventId',
@@ -95,6 +96,23 @@ class RareData:
     dose: float
     temperature: float
     charge_level: float
+    flags: int
+
+
+@dataclass
+class DoseCounter:
+    """Separate accumulated dose counter reported by the device.
+
+    The reset and persistence semantics of this counter are not established.
+
+    Attributes:
+        dt (datetime.datetime): Timestamp of the counter reading
+        dose_counter (int): Accumulated dose in microrem (10 nSv per unit)
+        flags (int): Status flags
+    """
+
+    dt: datetime.datetime
+    dose_counter: int
     flags: int
 
 
