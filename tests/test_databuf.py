@@ -46,7 +46,8 @@ class DataBufTests(unittest.TestCase):
 
     def test_dose_counter_alignment(self):
         # Consecutive captured records: counter, historical batch, status.
-        br = BytesBuffer(bytes.fromhex(
+        br = BytesBuffer(
+            bytes.fromhex(
                 '720004ce7074ff3707000000b0'
                 '730102445574ff030080250000'
                 'ac010000abaa8e400784e3362f0100b0'
